@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
+         version="5.0">
+
+    <display-name>Gestion des étudiants</display-name>
+
+    <!-- Titre de l'application -->
+    <context-param>
+        <param-name>title</param-name>
+        <param-value>gestion des étudiants</param-value>
+    </context-param>
+
+    <!-- URLs communes aux vues -->
+    <context-param>
+        <param-name>entetedepage</param-name>
+        <param-value>/WEB-INF/JSP/commun/entetedepage.jsp</param-value>
+    </context-param>
+    <context-param>
+        <param-name>pieddepage</param-name>
+        <param-value>/WEB-INF/JSP/commun/pieddepage.jsp</param-value>
+    </context-param>
+
+
+    <!--========= Jeu (v3) =========== -->
+    <!-- Servlet controleur -->
+    <servlet>
+        <servlet-name>controleur</servlet-name>
+        <servlet-class>fr.iut2.project1.controleur.Controleur</servlet-class>
+        <init-param>
+            <param-name>urlListeEtudiants</param-name>
+            <param-value>/WEB-INF/JSP/listeEtudiants.jsp</param-value>
+        </init-param>
+        <init-param>
+            <param-name>urlLogin</param-name>
+            <param-value>/WEB-INF/JSP/login.jsp</param-value>
+        </init-param>
+        <init-param>
+            <param-name>urlGroupes</param-name>
+            <param-value>/WEB-INF/JSP/groupes.jsp</param-value>
+        </init-param>
+        <init-param>
+            <param-name>urlFicheEtudiant</param-name>
+            <param-value>/WEB-INF/JSP/ficheEtudiant.jsp</param-value>
+        </init-param>
+        <init-param>
+            <param-name>urlEditionEtudiant</param-name>
+            <param-value>/WEB-INF/JSP/editionEtudiant.jsp</param-value>
+        </init-param>
+        <init-param>
+            <param-name>urlCreerEtu</param-name>
+            <param-value>/WEB-INF/JSP/creerEtudiant.jsp</param-value>
+        </init-param>
+        <init-param>
+            <param-name>urlAddNotes</param-name>
+            <param-value>/WEB-INF/JSP/addNotes.jsp</param-value>
+        </init-param>
+        <init-param>
+            <param-name>urlProfil</param-name>
+            <param-value>/WEB-INF/JSP/selfProfile.jsp</param-value>
+        </init-param>
+        <init-param>
+            <param-name>urlRemerciements</param-name>
+            <param-value>/WEB-INF/JSP/remerciements.jsp</param-value>
+        </init-param>
+        <init-param>
+            <param-name>urlListeControles</param-name>
+            <param-value>/WEB-INF/JSP/listeControles.jsp</param-value>
+        </init-param>
+        <init-param>
+            <param-name>urlDetailControle</param-name>
+            <param-value>/WEB-INF/JSP/detailControle.jsp</param-value>
+        </init-param>
+        <init-param>
+            <param-name>urlCreerProf</param-name>
+            <param-value>/WEB-INF/JSP/creerProf.jsp</param-value>
+        </init-param>
+    </servlet>
+
+    <!-- Servlet projet.controleurAjax -->
+    <servlet>
+        <servlet-name>controleurAjax</servlet-name>
+        <servlet-class>fr.iut2.project1.controleur.ControleurAjax</servlet-class>
+    </servlet>
+
+    <!-- Mapping URL/Servlet -->
+    <servlet-mapping>
+        <servlet-name>controleur</servlet-name>
+        <url-pattern>/do/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>controleurAjax</servlet-name>
+        <url-pattern>/ajax/*</url-pattern>
+    </servlet-mapping>
+
+    <!--  fichiers d'accueil -->
+    <welcome-file-list>
+        <welcome-file>do</welcome-file>
+    </welcome-file-list>
+</web-app>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+             http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+             version="2.0">
+    <persistence-unit name="Projet_JPA_SQLITE">
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+        <class>fr.iut2.project1.Groupe.Groupe</class>
+        <class>fr.iut2.project1.Etudiant.Etudiant</class>
+        <class>fr.iut2.project1.Note.Note</class>
+        <class>fr.iut2.project1.Prof.Prof</class>
+        <class>fr.iut2.project1.Controle.Controle</class>
+        <properties>
+            <property name="eclipselink.ddl-generation" value="create-or-extend-tables"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:sqlite:/Users/ethan.gely/IdeaProjects/projet_Web_Java_/Project1/BDD/Project1.sql"/>
+            <property name="javax.persistence.jdbc.driver" value="org.sqlite.JDBC"/>
+            <property name="eclipselink.target-database" value="Database"/>
+            <property name="eclipselink.ddl-generation.index-foreign-keys" value="true"/>
+            <property name="eclipselink.ddl-generation.output-mode" value="both"/>
+            <property name="eclipselink.application-location" value="/Users/ethan.gely/IdeaProjects/projet_Web_Java_/Project1/BDD/"/>
+            <!-- Disable EclipseLink cache - certains enregistrements n'était pas mis à jour en BD -->
+            <property name="eclipselink.cache.shared.default" value="false"/>
+            <property name="eclipselink.cache.type.default" value="NONE"/>
+        </properties>
+    </persistence-unit>
+</persistence>
